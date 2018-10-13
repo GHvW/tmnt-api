@@ -1,0 +1,30 @@
+{
+  "name": "tmnt-api",
+  "version": "0.0.1",
+  "description": "Teenage Mutant Ninja Turtles HTTP API",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GHvW/tmnt-api.git"
+  },
+  "author": "Garrett van Wageningen <ghvanw283@gmail.com>",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/GHvW/tmnt-api/issues"
+  },
+  "homepage": "https://github.com/GHvW/tmnt-api#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.3.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.16.0",
+    "@types/mongoose": "^5.2.19",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "typescript": "^3.1.3"
+  }
+}
