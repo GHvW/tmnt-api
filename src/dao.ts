@@ -7,7 +7,7 @@ export interface IBaseDao<T> {
 }
 
 
-export class BaseDao<T extends mongoose.Document> implements IBaseDao<T> {
+export class MongoBaseDao<T extends mongoose.Document> implements IBaseDao<T> {
   model: mongoose.Model<mongoose.Document>;
 
   constructor(model: mongoose.Model<mongoose.Document>) {
