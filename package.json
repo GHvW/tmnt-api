@@ -2,8 +2,12 @@
   "name": "tmnt-api",
   "version": "0.0.1",
   "description": "Teenage Mutant Ninja Turtles HTTP API",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
+    "start": "npm run serve",
+    "build": "npm run build-ts",
+    "serve": "node dist/server.js",
+    "build-ts": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

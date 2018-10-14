@@ -1,21 +1,28 @@
 import express from "express";
-
 import character from "./character/index";
 import pizza from "./pizza/index"
 import vehicle from "./vehicle/index"
 import tech from "./tech/index"
+import mongoose from "mongoose";
 
-const port = process.env.PORT || 1337;
 const app = express();
+const router = express.Router();
+//process.env.MONGODB;
+const db = "mongodb://localhost:27017/tmnt-api";
+mongoose.connect(db, { useNewUrlParser: true });
 
-// const router = express.Router();
+mongoose.connection.on("error", (err) => {
+  console.log(`Error connecting to Mongo DB: ${err}`);
+});
 
-app.use("/character", character);
+router.use("/character", character);
 
-app.use("/pizza", pizza);
+router.use("/pizza", pizza);
 
-app.use("/vehicle", vehicle);
+router.use("/vehicle", vehicle);
 
-app.use("/tech", tech);
+router.use("/tech", tech);
 
-app.listen(port);
+app.use("/api", router);
+
+export default app;
