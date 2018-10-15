@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-export type CharacterModel = mongoose.Document & {
+export interface CharacterModel extends mongoose.Document {
   name: string,
   biology: string,
   weapon: string,

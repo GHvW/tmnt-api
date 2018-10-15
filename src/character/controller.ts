@@ -22,8 +22,8 @@ export class CharacterController {
 
   getAllCharacters(res: Response): void {
     this.baseDao.findAll()
-      .then(character => {
-        res.status(200).send(character);
+      .then(characters => {
+        res.status(200).send(characters);
       })
       .catch(err => {
         res.status(500).send(`Error retrieving characters: ${err}`)
@@ -40,4 +40,3 @@ export class CharacterController {
       });
   }
 }
-

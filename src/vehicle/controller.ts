@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { VehicleModel } from "./model";
-import { IBaseDao } from "src/dao";
+import { IBaseDao } from "../dao";
 
 // export let findAll = (res: Response) => {
 //   Vehicle.find({}, (err, vehicles: VehicleModel[]) => {

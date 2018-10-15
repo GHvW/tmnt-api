@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { PizzaModel } from "./model";
-import { IBaseDao } from "src/dao";
+import { IBaseDao } from "../dao";
 
 // export const findAll = (res: Response) => {
 //   Pizza.find({}, (err, pizzas: PizzaModel[]) => {
