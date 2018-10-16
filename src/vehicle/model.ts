@@ -10,5 +10,5 @@ const vehicleSchema = new mongoose.Schema({
   description: String
 });
 
-const Vehicle = mongoose.model("Vehicle", vehicleSchema);
+const Vehicle = mongoose.model("Vehicle", vehicleSchema, "vehicle");
 export default Vehicle;

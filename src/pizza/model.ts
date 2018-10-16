@@ -10,5 +10,5 @@ const pizzaSchema = new mongoose.Schema({
   episode: String
 });
 
-const Pizza = mongoose.model("Pizza", pizzaSchema);
+const Pizza = mongoose.model("Pizza", pizzaSchema, "pizza");
 export default Pizza;

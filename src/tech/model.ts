@@ -10,5 +10,5 @@ const techSchema = new mongoose.Schema({
   description: String
 });
 
-const Tech = mongoose.model("Tech", techSchema);
+const Tech = mongoose.model("Tech", techSchema, "tech");
 export default Tech;
