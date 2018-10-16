@@ -22,7 +22,7 @@ export class MongoBaseDao<T extends mongoose.Document> implements IBaseDao<T> {
         }
         resolve(docs);
       });
-    })
+    });
   }
 
   findById(id: string): Promise<T> {
@@ -32,7 +32,7 @@ export class MongoBaseDao<T extends mongoose.Document> implements IBaseDao<T> {
           reject (err);
         }
         resolve(doc);
-      })
+      });
     });
   }
 }

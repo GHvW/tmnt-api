@@ -8,7 +8,7 @@ import mongoose from "mongoose";
 const app = express();
 const router = express.Router();
 //process.env.MONGODB;
-const db = "mongodb://localhost:27017/tmnt-api";
+const db = "mongodb://localhost:27017/tmnt";
 mongoose.connect(db, { useNewUrlParser: true })
   .then(() => console.log(`Connection to Mongo DB successful at ${db}`))
   .catch(err => console.log(`Error connecting to Mongo DB: ${err}`));

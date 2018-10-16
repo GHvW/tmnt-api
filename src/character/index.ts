@@ -11,8 +11,8 @@ const controller = new CharacterController(baseDao);
 // console.log(controller.baseDao.findAll());
 controller.baseDao.findAll().then(data => console.log(data));
 
-router.get("/", controller.getAllCharacters);
+router.get("/", controller.getAllCharacters.bind(controller));
 
-router.get("/:id", controller.getCharacterById);
+router.get("/:id", controller.getCharacterById.bind(controller));
 
 export default router;
