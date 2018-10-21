@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 
-const getAllHandler = <T>(dbFn: () => Promise<T[]>) => {
+export const getAllHandler = <T>(dbFn: () => Promise<T[]>) => {
   return (res: Response) => {
     dbFn()
       .then(data => {
@@ -12,7 +12,7 @@ const getAllHandler = <T>(dbFn: () => Promise<T[]>) => {
   }
 }
 
-const getByIdHandler = <T>(dbFn: (id: string) => Promise<T | null>) => {
+export const getByIdHandler = <T>(dbFn: (id: string) => Promise<T | null>) => {
   return (req: Request, res: Response) => {
     dbFn(req.params.id)
       .then(item => {

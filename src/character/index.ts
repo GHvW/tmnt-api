@@ -1,18 +1,22 @@
 import express from "express";
-import { default as Character, CharacterModel } from "./model";
-import { MongoBaseDao } from "../dao";
+import Character from "./model";
+import { findAll, findById } from "../base/dao";
+import { getAllHandler, getByIdHandler } from "../base/controller";
 
-import { CharacterController } from "./controller";
+// import { CharacterController } from "./controller";
 
 let router = express.Router();
-const baseDao = new MongoBaseDao<CharacterModel>(Character);
+// const baseDao = new MongoBaseDao<CharacterModel>(Character);
 // console.log(baseDao);
-const controller = new CharacterController(baseDao);
-// console.log(controller.baseDao.findAll());
-controller.baseDao.findAll().then(data => console.log(data));
+// const controller = new CharacterController(baseDao);
+// router.get("/", controller.getAllCharacters.bind(controller));
+// router.get("/:id", controller.getCharacterById.bind(controller));
 
-router.get("/", controller.getAllCharacters.bind(controller));
+const findAllCharacters = findAll(Character);
+const findCharacterById = findById(Character);
 
-router.get("/:id", controller.getCharacterById.bind(controller));
+router.get("/", getAllHandler(findAllCharacters));
+
+router.get("/:id", getByIdHandler(findCharacterById));
 
 export default router;
