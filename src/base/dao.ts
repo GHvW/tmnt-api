@@ -5,11 +5,11 @@ import { Document, Model } from "mongoose";
 //   findAll(): Promise<Array<T>>;
 //   findById(id: string): Promise<T | null>;
 // }
-interface findAll<T> {
+export interface findAll<T> {
   (): Promise<Array<T>>;
 }
 
-interface findById<T> {
+export interface findById<T> {
   (id: string): Promise<T | null>;
 }
 
@@ -51,15 +51,18 @@ interface findById<T> {
 // }
 
 // mongoose findAll func, returns Promise<T[]>
-export const findAll = <T extends Document>(model: Model<T>) => {
-  return () => {
-    return model.find({}).exec();
+// mongoose findById func, returns Promise<T | null>
+export const Mongo = {
+  findAll: <T extends Document>(model: Model<T>) => {
+    return () => {
+      return model.find({}).exec();
+    }
+  },
+
+  findById: <T extends Document>(model: Model<T>) => {
+    return (id: string) => {
+      return model.findById(id).exec();
+    }
   }
 }
 
-// mongoose findById func, returns Promise<T | null>
-export const findById = <T extends Document>(model: Model<T>) => {
-  return (id: string) => {
-    return model.findById(id).exec();
-  }
-}

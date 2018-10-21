@@ -1,6 +1,6 @@
 import express from "express";
 import Pizza from "./model";
-import { findAll, findById } from "../base/dao";
+import { Mongo } from "../base/dao";
 import { getAllHandler, getByIdHandler } from "../base/controller";
 // import { PizzaController } from "./controller";
 
@@ -13,8 +13,8 @@ const router = express.Router();
 
 // router.get("/:id", controller.getPizzaById);
 
-const findAllPizzas = findAll(Pizza);
-const findPizzaById = findById(Pizza);
+const findAllPizzas = Mongo.findAll(Pizza);
+const findPizzaById = Mongo.findById(Pizza);
 
 router.get("/", getAllHandler(findAllPizzas));
 

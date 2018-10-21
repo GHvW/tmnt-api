@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
+import { findAll, findById } from "./dao";
 
-export const getAllHandler = <T>(dbFn: () => Promise<T[]>) => {
+export const getAllHandler = <T>(dbFn: findAll<T>) => {
   return (res: Response) => {
     dbFn()
       .then(data => {
@@ -12,7 +13,7 @@ export const getAllHandler = <T>(dbFn: () => Promise<T[]>) => {
   }
 }
 
-export const getByIdHandler = <T>(dbFn: (id: string) => Promise<T | null>) => {
+export const getByIdHandler = <T>(dbFn: findById<T>) => {
   return (req: Request, res: Response) => {
     dbFn(req.params.id)
       .then(item => {

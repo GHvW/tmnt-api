@@ -1,6 +1,6 @@
 import express from "express";
 import Vehicle from "./model";
-import { findAll, findById } from "../base/dao";
+import { Mongo } from "../base/dao";
 import { getAllHandler, getByIdHandler } from "../base/controller";
 // import { MongoBaseDao } from "../base/dao";
 // import { VehicleController } from "./controller";
@@ -13,8 +13,8 @@ let router = express.Router();
 // router.get("/", controller.getAllVehicles);
 
 // router.get("/:id", controller.getVehicleById);
-const findAllVehicles = findAll(Vehicle);
-const findVehicleById = findById(Vehicle);
+const findAllVehicles = Mongo.findAll(Vehicle);
+const findVehicleById = Mongo.findById(Vehicle);
 
 router.get("/", getAllHandler(findAllVehicles));
 

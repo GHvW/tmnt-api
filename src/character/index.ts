@@ -1,6 +1,6 @@
 import express from "express";
 import Character from "./model";
-import { findAll, findById } from "../base/dao";
+import { Mongo } from "../base/dao";
 import { getAllHandler, getByIdHandler } from "../base/controller";
 
 // import { CharacterController } from "./controller";
@@ -12,8 +12,8 @@ let router = express.Router();
 // router.get("/", controller.getAllCharacters.bind(controller));
 // router.get("/:id", controller.getCharacterById.bind(controller));
 
-const findAllCharacters = findAll(Character);
-const findCharacterById = findById(Character);
+const findAllCharacters = Mongo.findAll(Character);
+const findCharacterById = Mongo.findById(Character);
 
 router.get("/", getAllHandler(findAllCharacters));
 
