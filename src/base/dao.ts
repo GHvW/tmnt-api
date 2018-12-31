@@ -52,6 +52,8 @@ export interface findById<T> {
 
 // mongoose findAll func, returns Promise<T[]>
 // mongoose findById func, returns Promise<T | null>
+
+// *** change this to something like export const Repo<T> = {}, where T = Mongo. Repo<Mongo> is the impl, maybe Repo<Mongo<T>>? maybe? ***
 export const Mongo = {
   findAll: <T extends Document>(model: Model<T>) => {
     return () => {
